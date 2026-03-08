@@ -290,9 +290,9 @@ The **Quantum VQC layer** adds computational expressiveness to the classificatio
 
 ---
 
-## Team
+## For
 
-**CEDT Hackathon 2026** — Chulalongkorn University
+**CEDT Hackathon 2026** — ท้ายจุฬาเฮิร์บ
 
 ---
 
