@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import sys
+import traceback
 from pathlib import Path
 
 import numpy as np
@@ -22,17 +23,22 @@ import torch
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.data.rsna_loader import SUBTYPES
-from src.utils.metrics import generate_benchmark_data, load_fed_results
-from dashboard.components.ct_viewer import render_ct_viewer
-from dashboard.components.fed_chart import (
-    render_benchmark_chart,
-    render_federated_rounds_chart,
-    render_live_simulation_animation,
-    render_hospital_breakdown_chart,
-)
-from dashboard.i18n import T, get_lang
-from dashboard.utils.pdf_export import generate_report_pdf
+try:
+    from src.data.rsna_loader import SUBTYPES
+    from src.utils.metrics import generate_benchmark_data, load_fed_results
+    from dashboard.components.ct_viewer import render_ct_viewer
+    from dashboard.components.fed_chart import (
+        render_benchmark_chart,
+        render_federated_rounds_chart,
+        render_live_simulation_animation,
+        render_hospital_breakdown_chart,
+    )
+    from dashboard.i18n import T, get_lang
+    from dashboard.utils.pdf_export import generate_report_pdf
+except Exception as _import_err:
+    st.error(f"❌ Import Error: {_import_err}")
+    st.code(traceback.format_exc())
+    st.stop()
 
 # ─── Page Config ──────────────────────────────────────────────────────────────
 st.set_page_config(
