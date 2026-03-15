@@ -1,3 +1,14 @@
+---
+title: Q-Sentinel Mesh
+emoji: 🧠
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: 1.54.0
+app_file: dashboard/app.py
+pinned: true
+---
+
 # Q-Sentinel Mesh 🧠
 
 > **CEDT Hackathon 2026** — Quantum-Enhanced Federated AI for Intracranial Hemorrhage Detection

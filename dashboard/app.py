@@ -62,6 +62,33 @@ with open(ROOT / "dashboard/assets/styles.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
+# ─── Weights Download ─────────────────────────────────────────────────────────
+
+@st.cache_resource(show_spinner="Downloading model weights...")
+def ensure_weights():
+    """Download model weights from HF Hub if not present locally."""
+    weights_dir = ROOT / "weights"
+    weights_dir.mkdir(exist_ok=True)
+    files = [
+        "finetuned_ctich.pth",
+        "high_acc_b4.pth",
+        "hybrid_qsentinel.pth",
+    ]
+    missing = [f for f in files if not (weights_dir / f).exists()]
+    if missing:
+        try:
+            from huggingface_hub import hf_hub_download
+            for fname in missing:
+                hf_hub_download(
+                    repo_id="Pottersk/q-sentinel-weights",
+                    filename=fname,
+                    local_dir=str(weights_dir),
+                )
+        except Exception as e:
+            st.warning(f"Could not download weights: {e}")
+
+ensure_weights()
+
 # ─── Model Loading ────────────────────────────────────────────────────────────
 
 @st.cache_resource(show_spinner="Loading AI model...")
