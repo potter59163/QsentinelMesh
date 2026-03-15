@@ -15,15 +15,24 @@ import sys
 import traceback
 from pathlib import Path
 
-import numpy as np
 import streamlit as st
-import torch
 
 # ─── Path Setup ───────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
+# ─── Page Config (must be first st command) ───────────────────────────────────
+st.set_page_config(
+    page_title="Q-Sentinel Mesh",
+    page_icon="🧠",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# ─── Lazy Heavy Imports ───────────────────────────────────────────────────────
 try:
+    import numpy as np
+    import torch
     from src.data.rsna_loader import SUBTYPES
     from src.utils.metrics import generate_benchmark_data, load_fed_results
     from dashboard.components.ct_viewer import render_ct_viewer
@@ -40,13 +49,6 @@ except Exception as _import_err:
     st.code(traceback.format_exc())
     st.stop()
 
-# ─── Page Config ──────────────────────────────────────────────────────────────
-st.set_page_config(
-    page_title="Q-Sentinel Mesh",
-    page_icon="🧠",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
 
 # ─── Session State Init ───────────────────────────────────────────────────────
 if "scans_analyzed" not in st.session_state:
