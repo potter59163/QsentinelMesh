@@ -50,3 +50,4 @@ weights/*.pth
 # Temp
 *.tmp
 *.bak
+data/samples/*.nii
