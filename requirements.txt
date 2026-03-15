@@ -1,6 +1,7 @@
-# ─── Core Deep Learning (CPU version for cloud deployment) ────────────────────
-torch
-torchvision
+# ─── Core Deep Learning (CPU-only for cloud) ──────────────────────────────────
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.4.1+cpu
+torchvision==0.19.1+cpu
 
 # ─── Medical Image Models ──────────────────────────────────────────────────────
 timm==1.0.25
@@ -17,8 +18,8 @@ matplotlib==3.10.0
 # ─── Quantum ML ────────────────────────────────────────────────────────────────
 pennylane==0.44.0
 
-# ─── Federated Learning ────────────────────────────────────────────────────────
-flwr[simulation]==1.26.1
+# ─── Federated Learning (no simulation/Ray to save memory) ────────────────────
+flwr==1.26.1
 
 # ─── Post-Quantum Cryptography ─────────────────────────────────────────────────
 pqcrypto==0.4.0
