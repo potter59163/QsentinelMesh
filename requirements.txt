@@ -10,7 +10,7 @@ grad-cam==1.5.5
 opencv-python-headless==4.10.0.84
 
 # ─── Dashboard ─────────────────────────────────────────────────────────────────
-streamlit==1.54.0
+streamlit>=1.40.0
 pydicom==3.0.1
 matplotlib==3.10.0
 
