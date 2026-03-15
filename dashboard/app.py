@@ -94,6 +94,7 @@ def ensure_weights():
             st.warning(f"Could not download weights: {e}")
 
     # ── CT-ICH demo scans (real NIfTI, 049–055) ────────────────────────────────
+    import shutil
     samples_dir = ROOT / "data" / "samples"
     samples_dir.mkdir(parents=True, exist_ok=True)
     ct_patients = ["049", "050", "051", "052", "053", "054", "055"]
@@ -101,17 +102,13 @@ def ensure_weights():
     if missing_ct:
         try:
             for pid in missing_ct:
-                hf_hub_download(
+                # hf_hub_download returns the local cache path of the file
+                cached_path = hf_hub_download(
                     repo_id="Pottersk/q-sentinel-weights",
                     filename=f"ct_scans/{pid}.nii",
-                    local_dir=str(samples_dir),
-                    local_dir_use_symlinks=False,
                 )
-                # hf_hub_download saves to samples_dir/ct_scans/pid.nii — move up one level
-                src = samples_dir / "ct_scans" / f"{pid}.nii"
                 dst = samples_dir / f"{pid}.nii"
-                if src.exists() and not dst.exists():
-                    src.rename(dst)
+                shutil.copy2(cached_path, str(dst))
         except Exception as e:
             st.warning(f"Could not download CT demo scans: {e}")
 
@@ -163,7 +160,6 @@ def load_calibrated_thresholds() -> dict:
 _CT_DATASET_DIR = ROOT / "data" / "samples"
 
 
-@st.cache_data(show_spinner=False)
 def get_dataset_patients() -> list:
     """Return sorted list of patient IDs available in the CT-ICH dataset."""
     if not _CT_DATASET_DIR.exists():
