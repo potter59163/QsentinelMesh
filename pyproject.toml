@@ -11,10 +11,3 @@ torchvision = { index = "pytorch-cpu" }
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
 explicit = true
-
-[tool.uv]
-# Force headless opencv on all platforms (no GUI / display server needed)
-override-dependencies = [
-    "opencv-python-headless>=4.8.0",
-    "opencv-python; sys_platform == 'never'",
-]

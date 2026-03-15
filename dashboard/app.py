@@ -406,9 +406,6 @@ with st.sidebar:
                     import pydicom
                     import io as _io
                     
-                    import importlib
-                    import src.data.rsna_loader
-                    importlib.reload(src.data.rsna_loader)
                     from src.data.rsna_loader import dicom_to_hu
 
                     _slices = []
@@ -740,9 +737,6 @@ with tab_diag:
                     st.session_state["last_detection"] = (
                         xai_results["top_class_name"], xai_results["confidence"]
                     )
-                    import importlib
-                    import dashboard.components.heatmap_overlay
-                    importlib.reload(dashboard.components.heatmap_overlay)
                     from dashboard.components.heatmap_overlay import render_ai_suggestion
                     render_ai_suggestion(xai_results, volume, slice_idx, key_prefix="ai_res", detect_thresh=sensitivity)
 

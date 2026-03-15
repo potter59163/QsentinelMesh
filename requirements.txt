@@ -4,21 +4,23 @@ torch==2.4.1+cpu
 torchvision==0.19.1+cpu
 
 # ─── Medical Image Models ──────────────────────────────────────────────────────
-timm==1.0.25
+timm>=1.0.0
 
 # ─── Explainability (pure PyTorch/numpy HiResCAM — no cv2 needed) ──────────────
 # grad-cam removed: custom implementation in src/xai/gradcam.py avoids cv2 dep
 
 # ─── Dashboard ─────────────────────────────────────────────────────────────────
 streamlit>=1.40.0
-pydicom==3.0.1
-matplotlib==3.10.0
+pydicom>=2.4.0
+matplotlib>=3.8.0
 
 # ─── Quantum ML ────────────────────────────────────────────────────────────────
 pennylane==0.44.0
+# gast is an optional dep of pennylane capture module — must be explicit
 gast>=0.5.4
 
-# ─── Federated Learning (no simulation/Ray to save memory) ────────────────────
+# ─── Federated Learning ────────────────────────────────────────────────────────
+# flwr 1.26.x requires typer<0.21.0 which can conflict; 1.9.0 is clean
 flwr==1.9.0
 
 # ─── Post-Quantum Cryptography ─────────────────────────────────────────────────
@@ -28,14 +30,15 @@ cryptography>=42.0.0
 
 # ─── Medical Image Formats ─────────────────────────────────────────────────────
 nibabel>=5.0.0
-scipy>=1.11.0
+scipy>=1.13.0
 
 # ─── HF Hub (weights download) ────────────────────────────────────────────────
 huggingface_hub>=0.23.0
 
 # ─── Data / Utilities ──────────────────────────────────────────────────────────
-numpy==2.2.3
-pandas==2.2.3
-scikit-learn==1.6.1
-Pillow==11.1.0
-tqdm==4.67.1
+# Flexible numpy: ==2.2.3 exact pin can conflict with packages that cap at <2.0
+numpy>=1.26.4
+pandas>=2.0.0
+scikit-learn>=1.4.0
+Pillow>=9.0.0
+tqdm>=4.60.0
