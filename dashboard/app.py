@@ -139,8 +139,13 @@ def load_calibrated_thresholds() -> dict:
 
 
 # ─── CT-ICH Dataset Path ──────────────────────────────────────────────────────
+# Use bundled demo samples (data/samples/049.nii – 055.nii) that ship with the repo.
+# Falls back to the full local CT-ICH dataset if present.
+_CT_SAMPLE_DIR  = ROOT / "data" / "samples"
 _CT_DATASET_DIR = (
-    ROOT.parent
+    _CT_SAMPLE_DIR
+    if _CT_SAMPLE_DIR.exists()
+    else ROOT.parent
     / "computed-tomography-images-for-intracranial-hemorrhage-detection-and-segmentation-1.3.1"
     / "ct_scans"
 )
@@ -258,16 +263,27 @@ with st.sidebar:
     st.markdown(f"**{T('demo_case')}**")
     _available_patients = get_dataset_patients()
     if _available_patients:
+        # Badge: show patient count
+        st.markdown(
+            f"""<div style="margin-bottom:6px;">
+                <span style="background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2);
+                             border-radius:5px; padding:2px 10px; color:#00D4FF;
+                             font-size:11px; font-family:monospace;">
+                    CT-ICH dataset &nbsp;·&nbsp; {len(_available_patients)} ตัวอย่าง
+                </span>
+            </div>""",
+            unsafe_allow_html=True,
+        )
         patient_id = st.selectbox(
             "Patient ID",
             _available_patients,
             index=0,
             label_visibility="collapsed",
-            help="Select a patient from the CT-ICH dataset (PhysioNet)",
+            help="CT-ICH Dataset (PhysioNet) — 7 demo cases",
         )
     else:
         patient_id = "049"
-        st.caption("⚠️ CT-ICH dataset not found")
+        st.caption("CT-ICH demo · patient 049")
     case_type = patient_id  # unified alias used elsewhere
 
     model_type = st.radio(
