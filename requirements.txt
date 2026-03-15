@@ -16,6 +16,7 @@ matplotlib==3.10.0
 
 # ─── Quantum ML ────────────────────────────────────────────────────────────────
 pennylane==0.44.0
+gast>=0.5.4
 
 # ─── Federated Learning (no simulation/Ray to save memory) ────────────────────
 flwr==1.26.1

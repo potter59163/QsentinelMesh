@@ -124,8 +124,11 @@ def load_model(model_type: str = "baseline"):
     if model_type == "hybrid":
         weights_path = weights_dir / "hybrid_qsentinel.pth"
         if weights_path.exists():
-            from src.models.hybrid_model import load_hybrid_model
-            return load_hybrid_model(str(weights_path), device), device
+            try:
+                from src.models.hybrid_model import load_hybrid_model
+                return load_hybrid_model(str(weights_path), device), device
+            except Exception as _e:
+                st.warning(f"Hybrid model unavailable ({_e}), falling back to CNN baseline.")
 
     # Prefer finetuned_ctich.pth (AUC 96%), fall back to high_acc, then baseline
     weights_path = weights_dir / "finetuned_ctich.pth"
