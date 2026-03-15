@@ -1,4 +1,4 @@
-"""
+﻿"""
 Internationalization (i18n) Module for Q-Sentinel Mesh Dashboard
 
 Supports:  🇬🇧 English (en)  ·  🇹🇭 ไทย (th)
@@ -68,8 +68,8 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "run_ai_analysis":              {"en": "⚡ Run AI Analysis",                  "th": "⚡ วิเคราะห์ด้วย AI"},
     "running_analysis":             {"en": "Running Q-Sentinel analysis...",     "th": "AI กำลังวิเคราะห์..."},
     "ai_heatmap_ready":             {"en": "AI Heatmap Ready",                   "th": "กดเพื่อวิเคราะห์"},
-    "click_run_ai":                 {"en": 'Click <strong style="color:#00D4FF">Run AI Analysis</strong> to detect hemorrhage and generate an explainability map',
-                                     "th": 'กด <strong style="color:#00D4FF">วิเคราะห์ด้วย AI</strong> เพื่อตรวจหาเลือดออกและดูแผนที่อธิบาย'},
+    "click_run_ai":                 {"en": 'Click <strong style="color:#D4A040">Run AI Analysis</strong> to detect hemorrhage and generate an explainability map',
+                                     "th": 'กด <strong style="color:#D4A040">วิเคราะห์ด้วย AI</strong> เพื่อตรวจหาเลือดออกและดูแผนที่อธิบาย'},
     "analysis_config":              {"en": "Analysis Config",                    "th": "ตั้งค่าการวิเคราะห์"},
     "analysis_mode":                {"en": "Analysis Mode",                      "th": "รูปแบบการวิเคราะห์"},
     "what_ai_does":                 {"en": "ℹ️ What the AI does",                "th": "ℹ️ AI ทำอะไรบ้าง"},
@@ -164,8 +164,8 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
 
     # ── Tab 3: Security Layer ─────────────────────────────────────────────────
     "pqc_title":                    {"en": "🔐 Post-Quantum Security Layer",     "th": "🔐 ระบบความปลอดภัยหลังควอนตัม"},
-    "pqc_subtitle":                 {"en": "All model weight transmissions are protected with <strong style=\"color:#00D4FF;\">ML-KEM-512</strong> (CRYSTALS-Kyber, NIST FIPS 203) — secure against both classical and quantum adversaries.",
-                                     "th": "การส่งน้ำหนักโมเดลทั้งหมดถูกปกป้องด้วย <strong style=\"color:#00D4FF;\">ML-KEM-512</strong> (CRYSTALS-Kyber, NIST FIPS 203) — ปลอดภัยจากทั้งคอมพิวเตอร์ทั่วไปและควอนตัม"},
+    "pqc_subtitle":                 {"en": "All model weight transmissions are protected with <strong style=\"color:#D4A040;\">ML-KEM-512</strong> (CRYSTALS-Kyber, NIST FIPS 203) — secure against both classical and quantum adversaries.",
+                                     "th": "การส่งน้ำหนักโมเดลทั้งหมดถูกปกป้องด้วย <strong style=\"color:#D4A040;\">ML-KEM-512</strong> (CRYSTALS-Kyber, NIST FIPS 203) — ปลอดภัยจากทั้งคอมพิวเตอร์ทั่วไปและควอนตัม"},
     "secure_flow":                  {"en": "🔄 Secure Weight Transmission Flow", "th": "🔄 ขั้นตอนการส่งน้ำหนักอย่างปลอดภัย"},
     "flow1_title":                  {"en": "Local Training",                     "th": "การฝึกภายใน"},
     "flow1_desc":                   {"en": "Hospital trains model on local CT data → extracts weight deltas",
@@ -203,8 +203,8 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "pqc_not_installed":            {"en": "pqcrypto not installed. Run `setup_env.bat` first.",
                                      "th": "ยังไม่ได้ติดตั้ง pqcrypto รัน `setup_env.bat` ก่อน"},
     "why_pqc":                      {"en": "🔮 Why Post-Quantum Cryptography?",  "th": "🔮 ทำไมต้องใช้การเข้ารหัสหลังควอนตัม?"},
-    "why_pqc_text":                 {"en": 'Current <strong style="color:#94A3B8;">RSA/ECC</strong> encryption is vulnerable to Shor\'s Algorithm on quantum computers. <strong style="color:#00D4FF;">ML-KEM-512</strong> is based on the hardness of <strong style="color:#94A3B8;">Module Learning With Errors (MLWE)</strong> — believed intractable even for quantum adversaries — future-proofing patient data and model intellectual property against the coming quantum era.',
-                                     "th": 'การเข้ารหัส <strong style="color:#94A3B8;">RSA/ECC</strong> แบบเดิมโดนอัลกอริทึม Shor บนคอมพิวเตอร์ควอนตัมได้ <strong style="color:#00D4FF;">ML-KEM-512</strong> ใช้ความยากของ <strong style="color:#94A3B8;">MLWE</strong> — แกไม่ได้แม้ด้วยควอนตัม — ปกป้องข้อมูลผู้ป่วยจากยุค Quantum ที่กำลังจะมาถึง'},
+    "why_pqc_text":                 {"en": 'Current <strong style="color:#B8ADA0;">RSA/ECC</strong> encryption is vulnerable to Shor\'s Algorithm on quantum computers. <strong style="color:#D4A040;">ML-KEM-512</strong> is based on the hardness of <strong style="color:#B8ADA0;">Module Learning With Errors (MLWE)</strong> — believed intractable even for quantum adversaries — future-proofing patient data and model intellectual property against the coming quantum era.',
+                                     "th": 'การเข้ารหัส <strong style="color:#B8ADA0;">RSA/ECC</strong> แบบเดิมโดนอัลกอริทึม Shor บนคอมพิวเตอร์ควอนตัมได้ <strong style="color:#D4A040;">ML-KEM-512</strong> ใช้ความยากของ <strong style="color:#B8ADA0;">MLWE</strong> — แกไม่ได้แม้ด้วยควอนตัม — ปกป้องข้อมูลผู้ป่วยจากยุค Quantum ที่กำลังจะมาถึง'},
 
     # ── Charts (fed_chart.py) ─────────────────────────────────────────────────
     "improvement_gap":              {"en": "Improvement Gap",                    "th": "ความต่างที่ดีขึ้น"},
@@ -295,3 +295,4 @@ def T(key: str) -> str:
 def get_lang() -> str:
     """Return current language code (always English)."""
     return "en"
+

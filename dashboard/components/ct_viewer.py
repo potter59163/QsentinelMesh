@@ -1,4 +1,4 @@
-"""
+﻿"""
 CT Scan Slice Viewer Component for Streamlit Dashboard
 
 Renders an interactive DICOM/volume viewer with:
@@ -63,8 +63,8 @@ def render_ct_viewer(
             <h3 style="color:#E2E8F0; margin:0; font-size:15px; font-weight:600;">
                 {title}
             </h3>
-            <span style="background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.2);
-                         border-radius:6px; padding:3px 10px; color:#00D4FF;
+            <span style="background:rgba(212,160,64,0.1); border:1px solid rgba(212,160,64,0.2);
+                         border-radius:6px; padding:3px 10px; color:#D4A040;
                          font-size:11px; font-family:monospace;">
                 {depth} {T('slices')}
             </span>
@@ -120,7 +120,7 @@ def render_ct_viewer(
     ax.text(
         5, 10,
         f"S{slice_idx + 1:02d}/{depth}",
-        color="#00D4FF", fontsize=8, family="monospace",
+        color="#D4A040", fontsize=8, family="monospace",
         bbox=dict(facecolor="#060A14", alpha=0.6, edgecolor="none", pad=2),
     )
     ax.text(
@@ -150,8 +150,8 @@ def render_ct_viewer(
     st.markdown(
         f"""
         <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
-            <div style="flex:1; background:#1A2540; border-radius:3px; height:4px; overflow:hidden;">
-                <div style="width:{pct:.1f}%; background:linear-gradient(90deg,#0066CC,#00D4FF);
+            <div style="flex:1; background:#2A2118; border-radius:3px; height:4px; overflow:hidden;">
+                <div style="width:{pct:.1f}%; background:#D4A040;
                              height:100%; border-radius:3px; transition:width 0.3s;"></div>
             </div>
             <span style="color:#475569; font-size:11px; font-family:monospace; min-width:50px; text-align:right;">
@@ -169,7 +169,7 @@ def render_ct_viewer(
 
         fig2, ax2 = plt.subplots(figsize=(5, 1.8), facecolor="#060A14")
         ax2.set_facecolor("#0A0F1C")
-        ax2.hist(hu_valid, bins=60, color="#00D4FF", alpha=0.7, rwidth=0.85)
+        ax2.hist(hu_valid, bins=60, color="#D4A040", alpha=0.7, rwidth=0.85)
 
         # Mark tissue ranges
         for _, lo, hi, color in [
@@ -186,8 +186,8 @@ def render_ct_viewer(
         ax2.set_ylabel(T("count"), color="#64748B", fontsize=7)
         ax2.tick_params(colors="#475569", labelsize=7)
         for spine in ax2.spines.values():
-            spine.set_edgecolor("#1A2540")
-        ax2.grid(True, color="#1A2540", linewidth=0.5, alpha=0.6)
+            spine.set_edgecolor("#2A2118")
+        ax2.grid(True, color="#2A2118", linewidth=0.5, alpha=0.6)
         fig2.tight_layout(pad=0.5)
         st.pyplot(fig2, use_container_width=True)
         plt.close(fig2)
@@ -206,3 +206,4 @@ def render_ct_viewer(
         )
 
     return slice_idx, window
+

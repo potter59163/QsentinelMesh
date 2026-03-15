@@ -1,4 +1,4 @@
-"""
+﻿"""
 PDF Report Generator for Q-Sentinel Mesh
 Uses matplotlib PdfPages (no extra dependencies needed).
 
@@ -25,7 +25,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 ROOT = Path(__file__).parent.parent.parent
 
 # Brand colors
-_CYAN   = "#00D4FF"
+_CYAN   = "#D4A040"
 _BG     = "#060A14"
 _PANEL  = "#0F1827"
 _BORDER = "#1A2540"
@@ -376,3 +376,4 @@ def generate_report_pdf(
 
     buf.seek(0)
     return buf.read()
+

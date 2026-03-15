@@ -1,4 +1,4 @@
-"""
+﻿"""
 Federated Learning Chart Component
 
 Renders:
@@ -23,7 +23,7 @@ from dashboard.i18n import T, get_lang
 # Chart color palette
 COLORS = {
     "baseline":  "#64748B",
-    "qsentinel": "#00D4FF",
+    "qsentinel": "#D4A040",
     "hospital_a": "#FF6B6B",
     "hospital_b": "#4ECDC4",
     "hospital_c": "#FFE66D",
@@ -290,3 +290,4 @@ def render_live_simulation_animation(
         f"✅ {T('fed_complete')} "
         f"{T('auc_improved')} **{baseline_start:.1f}%** ({T('isolated')}) → **{final_fed:.1f}%** ({T('hospitals_count')})",
     )
+

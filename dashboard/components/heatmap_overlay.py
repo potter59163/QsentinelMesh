@@ -1,4 +1,4 @@
-"""
+﻿"""
 Heatmap Overlay Component for Streamlit Dashboard
 
 Displays AI prediction results with Grad-CAM heatmap overlaid
@@ -28,7 +28,7 @@ SUBTYPE_KEYS = {
     "intraventricular":  ("intraventricular",  "🟠", "#FF6348", "intraventricular_desc"),
     "subarachnoid":      ("subarachnoid",      "🟡", "#FFA502", "subarachnoid_desc"),
     "subdural":          ("subdural",          "🟣", "#9C88FF", "subdural_desc"),
-    "any":               ("any_hemorrhage",    "🔵", "#00D4FF", "any_hemorrhage_desc"),
+    "any":               ("any_hemorrhage",    "🔵", "#D4A040", "any_hemorrhage_desc"),
 }
 
 def _get_subtype_info(key: str) -> tuple:
@@ -106,7 +106,7 @@ def render_ai_suggestion(
     with col_heat:
         fig, ax = plt.subplots(figsize=(4, 4), facecolor="#0A0E1A")
         ax.imshow(overlay)
-        ax.set_title(T("ai_heatmap_hirescam"), color="#00D4FF", fontsize=10)
+        ax.set_title(T("ai_heatmap_hirescam"), color="#D4A040", fontsize=10)
         ax.axis("off")
         # Colorbar
         norm = Normalize(vmin=0, vmax=1)
@@ -127,8 +127,8 @@ def render_ai_suggestion(
     
     fig_v, ax_v = plt.subplots(figsize=(10, 2), facecolor="#0A0E1A")
     ax_v.set_facecolor("#0F172A")
-    ax_v.fill_between(range(len(v_probs)), v_probs * 100, color="#00D4FF", alpha=0.3)
-    ax_v.plot(v_probs * 100, color="#00D4FF", linewidth=1.5)
+    ax_v.fill_between(range(len(v_probs)), v_probs * 100, color="#D4A040", alpha=0.3)
+    ax_v.plot(v_probs * 100, color="#D4A040", linewidth=1.5)
     
     # Mark current/top slice
     ax_v.axvline(top_idx, color="#F87171", linestyle="--", alpha=0.8, label=T("selected_slice"))
@@ -153,9 +153,9 @@ def render_ai_suggestion(
         
         st.markdown(
             f"""
-            <div style="background:rgba(0,212,255,0.05); border-radius:8px; padding:12px; border:1px dashed #1E3050;">
+            <div style="background:rgba(212,160,64,0.05); border-radius:8px; padding:12px; border:1px dashed #2A2118;">
                 <span style="color:#94A3B8; font-size:12px;">{T('volumetric_est')}:</span>
-                <span style="color:#00D4FF; font-weight:700; font-size:18px; margin-left:8px;">
+                <span style="color:#D4A040; font-weight:700; font-size:18px; margin-left:8px;">
                     {vol_score:.1f} ml
                 </span>
                 <p style="color:#475569; font-size:10px; margin:4px 0 0 0;">
@@ -202,7 +202,7 @@ def render_ai_suggestion(
     
     # Indicate if this is the "Focus" slice
     if slice_idx == top_idx:
-        st.markdown(f"<p style='color:#00D4FF; font-size:11px; text-align:center; margin-top:-10px;'>🎯 {T('current_is_top_focus')}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='color:#D4A040; font-size:11px; text-align:center; margin-top:-10px;'>🎯 {T('current_is_top_focus')}</p>", unsafe_allow_html=True)
 
     # ── Clinical Findings Summary ─────────────────────────────────────────────
     with st.expander(f"📝 {T('clinical_summary')}", expanded=True):
@@ -220,3 +220,4 @@ def render_ai_suggestion(
             )
         else:
             st.markdown(T("no_hemorrhage_normal"))
+

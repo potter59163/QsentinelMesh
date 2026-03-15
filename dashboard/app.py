@@ -1,4 +1,4 @@
-"""
+﻿"""
 Q-Sentinel Mesh — Main Streamlit Dashboard
 
 Doctor-facing interface for:
@@ -227,10 +227,10 @@ with st.sidebar:
         f"""
         <div style="text-align:center; padding:16px 0 8px;">
             <div style="font-size:36px; margin-bottom:6px;">🧠</div>
-            <h2 style="color:#00D4FF; margin:0; font-size:1.2rem; letter-spacing:0.04em;">
+            <h2 style="color:#D4A040; margin:0; font-size:1.2rem; letter-spacing:0.04em;">
                 {T('brand_name')}
             </h2>
-            <p style="color:#475569; margin:4px 0 8px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;">
+            <p style="color:#7A6E60; margin:4px 0 8px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;">
                 {T('brand_subtitle')}
             </p>
             <span class="badge badge-online">
@@ -258,17 +258,17 @@ with st.sidebar:
 
     st.markdown(
         f"""
-        <div style="background:rgba(15,24,39,0.7); border:1px solid #1A2540;
+        <div style="background:rgba(24,19,14,0.85); border:1px solid #2A2118;
                     border-radius:10px; padding:12px 14px; margin-bottom:12px;">
-            <div style="font-size:11px; color:#475569; text-transform:uppercase;
+            <div style="font-size:11px; color:#7A6E60; text-transform:uppercase;
                         letter-spacing:0.06em; margin-bottom:8px;">{T('system_status')}</div>
             <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                <span style="color:#64748B; font-size:12px;">{T('compute')}</span>
-                <span style="color:#CBD5E1; font-size:12px;">{device_label}</span>
+                <span style="color:#8A7A6A; font-size:12px;">{T('compute')}</span>
+                <span style="color:#C5B9AB; font-size:12px;">{device_label}</span>
             </div>
             <div style="display:flex; justify-content:space-between;">
-                <span style="color:#64748B; font-size:12px;">{T('ai_model_label')}</span>
-                <span style="color:#CBD5E1; font-size:12px;">{model_status}</span>
+                <span style="color:#8A7A6A; font-size:12px;">{T('ai_model_label')}</span>
+                <span style="color:#C5B9AB; font-size:12px;">{model_status}</span>
             </div>
         </div>
         """,
@@ -290,8 +290,8 @@ with st.sidebar:
         # Badge: show patient count
         st.markdown(
             f"""<div style="margin-bottom:6px;">
-                <span style="background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2);
-                             border-radius:5px; padding:2px 10px; color:#00D4FF;
+                <span style="background:rgba(0,212,255,0.08); border:1px solid rgba(212,160,64,0.2);
+                             border-radius:5px; padding:2px 10px; color:#D4A040;
                              font-size:11px; font-family:monospace;">
                     CT-ICH dataset &nbsp;·&nbsp; {len(_available_patients)} ตัวอย่าง
                 </span>
@@ -485,15 +485,15 @@ st.markdown(
     f"""
     <div class="hero-header">
         <div style="position:absolute; right:24px; top:10px; font-size:72px; font-weight:900;
-                    color:#1A2540; letter-spacing:-6px; user-select:none; pointer-events:none;">
+                    color:#2A2118; letter-spacing:-6px; user-select:none; pointer-events:none;">
             QSM
         </div>
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
             <div>
-                <h1 style="color:#00D4FF; margin:0 0 4px; font-size:32px; font-weight:800; letter-spacing:-0.03em;">
+                <h1 style="color:#D4A040; margin:0 0 4px; font-size:32px; font-weight:800; letter-spacing:-0.03em;">
                     🧠 Q-Sentinel Mesh
                 </h1>
-                <p style="color:#94A3B8; margin:0 0 12px; font-size:13px;">
+                <p style="color:#B8ADA0; margin:0 0 12px; font-size:13px;">
                     {T('page_desc')}
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap;">
@@ -600,16 +600,16 @@ with tab_diag:
             <div style="margin-bottom:12px;">
                 <h3 style="color:#E2E8F0; margin:0 0 8px; font-size:16px;">{T('ai_analysis')}</h3>
                 <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-                    <span style="background:#1A2540; border-radius:6px; padding:4px 10px;
-                                 color:#94A3B8; font-size:12px;">
+                    <span style="background:#2A2118; border-radius:6px; padding:4px 10px;
+                                 color:#B8ADA0; font-size:12px;">
                         📍 {hospital}
                     </span>
-                    <span style="background:#1A2540; border-radius:6px; padding:4px 10px;
-                                 color:#94A3B8; font-size:12px;">
+                    <span style="background:#2A2118; border-radius:6px; padding:4px 10px;
+                                 color:#B8ADA0; font-size:12px;">
                         📋 Patient {patient_id}
                     </span>
-                    <span style="background:#1A2540; border-radius:6px; padding:4px 10px;
-                                 color:#94A3B8; font-size:12px;">
+                    <span style="background:#2A2118; border-radius:6px; padding:4px 10px;
+                                 color:#B8ADA0; font-size:12px;">
                         {'⚛️ Q-Sentinel Hybrid' if model_type == 'hybrid' else '🔷 CNN Baseline'}
                     </span>
                 </div>
@@ -781,29 +781,29 @@ with tab_diag:
                     _active_bl = model_type == "baseline"
                     _active_hy = model_type == "hybrid"
                     # Pre-compute all conditional values to keep HTML clean
-                    _bl_bg  = "rgba(0,212,255,0.1)"   if _active_bl else "#0A0F1C"
-                    _bl_bdr = "rgba(0,212,255,0.35)"  if _active_bl else "#1A2540"
-                    _bl_col = "#00D4FF"                if _active_bl else "#CBD5E1"
-                    _bl_tag = '<div style="color:#00D4FF;font-size:10px;margin-top:4px;">▶ Active</div>' if _active_bl else ""
-                    _hy_bg  = "rgba(139,92,246,0.12)" if _active_hy else "#0A0F1C"
-                    _hy_bdr = "rgba(139,92,246,0.35)" if _active_hy else "#1A2540"
-                    _hy_col = "#A78BFA"                if _active_hy else "#CBD5E1"
+                    _bl_bg  = "rgba(0,212,255,0.1)"   if _active_bl else "#100D08"
+                    _bl_bdr = "rgba(212,160,64,0.35)"  if _active_bl else "#2A2118"
+                    _bl_col = "#D4A040"                if _active_bl else "#C5B9AB"
+                    _bl_tag = '<div style="color:#D4A040;font-size:10px;margin-top:4px;">▶ Active</div>' if _active_bl else ""
+                    _hy_bg  = "rgba(139,92,246,0.12)" if _active_hy else "#100D08"
+                    _hy_bdr = "rgba(139,92,246,0.35)" if _active_hy else "#2A2118"
+                    _hy_col = "#A78BFA"                if _active_hy else "#C5B9AB"
                     _hy_tag = '<div style="color:#A78BFA;font-size:10px;margin-top:4px;">▶ Active</div>' if _active_hy else ""
                     st.markdown(
-                        f"""<div style="background:linear-gradient(135deg,#0F1827,#111E30);border:1px solid #1A2540;border-radius:12px;padding:14px 16px;margin-top:14px;">
-<div style="color:#64748B;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">{T('model_comparison')}</div>
+                        f"""<div style="background:#181310;border:1px solid #2A2118;border-radius:12px;padding:14px 16px;margin-top:14px;">
+<div style="color:#8A7A6A;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">{T('model_comparison')}</div>
 <div style="display:flex;gap:8px;margin-bottom:8px;">
 <div style="flex:1;background:{_bl_bg};border:1px solid {_bl_bdr};border-radius:8px;padding:10px 12px;text-align:center;">
-<div style="color:#64748B;font-size:10px;margin-bottom:4px;">🔷 CNN Baseline</div>
+<div style="color:#8A7A6A;font-size:10px;margin-bottom:4px;">🔷 CNN Baseline</div>
 <div style="color:{_bl_col};font-size:18px;font-weight:700;font-family:monospace;">{_bl:.1f}%</div>
 {_bl_tag}</div>
 <div style="flex:1;background:{_hy_bg};border:1px solid {_hy_bdr};border-radius:8px;padding:10px 12px;text-align:center;">
-<div style="color:#64748B;font-size:10px;margin-bottom:4px;">⚛️ Q-Sentinel</div>
+<div style="color:#8A7A6A;font-size:10px;margin-bottom:4px;">⚛️ Q-Sentinel</div>
 <div style="color:{_hy_col};font-size:18px;font-weight:700;font-family:monospace;">{_hy:.1f}%</div>
 {_hy_tag}</div>
-<div style="flex:1;background:#0A0F1C;border:1px solid #1A2540;border-radius:8px;padding:10px 12px;text-align:center;">
-<div style="color:#64748B;font-size:10px;margin-bottom:4px;">⚡ {T('quantum_gain')}</div>
-<div style="color:#4ADE80;font-size:18px;font-weight:700;font-family:monospace;">+{_gain:.1f}%</div>
+<div style="flex:1;background:#100D08;border:1px solid #2A2118;border-radius:8px;padding:10px 12px;text-align:center;">
+<div style="color:#8A7A6A;font-size:10px;margin-bottom:4px;">⚡ {T('quantum_gain')}</div>
+<div style="color:#22C883;font-size:18px;font-weight:700;font-family:"JetBrains Mono",monospace;">+{_gain:.1f}%</div>
 </div></div></div>""",
                         unsafe_allow_html=True,
                     )
@@ -814,7 +814,7 @@ with tab_diag:
                 f"""
                 <div class="heatmap-placeholder">
                     <div style="font-size:52px; margin-bottom:12px; opacity:0.6;">🧠</div>
-                    <div style="color:#475569; font-size:14px; font-weight:600; margin-bottom:6px;">
+                    <div style="color:#7A6E60; font-size:14px; font-weight:600; margin-bottom:6px;">
                         {T('ai_heatmap_ready')}
                     </div>
                     <div style="color:#334155; font-size:12px; max-width:220px; margin:0 auto; line-height:1.5;">
@@ -830,10 +830,10 @@ with tab_diag:
                 f"""
                 <div style="background:rgba(0,212,255,0.04); border:1px solid rgba(0,212,255,0.12);
                             border-radius:10px; padding:14px 16px;">
-                    <div style="color:#00D4FF; font-size:12px; font-weight:600; margin-bottom:8px;">
+                    <div style="color:#D4A040; font-size:12px; font-weight:600; margin-bottom:8px;">
                         {T('what_ai_does')}
                     </div>
-                    <ul style="color:#64748B; font-size:12px; margin:0; padding-left:16px; line-height:1.7;">
+                    <ul style="color:#8A7A6A; font-size:12px; margin:0; padding-left:16px; line-height:1.7;">
                         <li>{T('ai_does_1')}</li>
                         <li>{T('ai_does_2')}</li>
                         <li>{T('ai_does_3')}</li>
@@ -854,9 +854,9 @@ with tab_fed:
         f"""
         <div style="margin-bottom:20px;">
             <h2 style="color:#E2E8F0; margin:0 0 6px; font-size:20px;">{T('fed_title')}</h2>
-            <p style="color:#64748B; margin:0; font-size:13px;">
+            <p style="color:#8A7A6A; margin:0; font-size:13px;">
                 {T('fed_subtitle')}
-                <strong style="color:#4ADE80;">{T('no_data_leaves')}</strong> {T('local_servers')}
+                <strong style="color:#22C883;">{T('no_data_leaves')}</strong> {T('local_servers')}
             </p>
         </div>
         """,
@@ -883,7 +883,7 @@ with tab_fed:
         st.markdown(
             f"""
             <div class="section-heading">{T('benchmark_heading')}</div>
-            <div style="color:#475569; font-size:11px; margin-bottom:8px;">{data_source}</div>
+            <div style="color:#7A6E60; font-size:11px; margin-bottom:8px;">{data_source}</div>
             """,
             unsafe_allow_html=True,
         )
@@ -916,25 +916,25 @@ with tab_fed:
     with col_info:
         st.markdown(
             f"""
-            <div style="background:rgba(15,24,39,0.7); border:1px solid #1A2540;
+            <div style="background:rgba(24,19,14,0.85); border:1px solid #2A2118;
                         border-radius:10px; padding:14px;">
-                <div style="color:#475569; font-size:11px; text-transform:uppercase;
+                <div style="color:#7A6E60; font-size:11px; text-transform:uppercase;
                             letter-spacing:0.06em; margin-bottom:10px;">{T('round_config')}</div>
                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
-                    <span style="color:#64748B; font-size:12px;">{T('rounds')}</span>
-                    <span style="color:#CBD5E1; font-size:12px; font-family:monospace;">5</span>
+                    <span style="color:#8A7A6A; font-size:12px;">{T('rounds')}</span>
+                    <span style="color:#C5B9AB; font-size:12px; font-family:monospace;">5</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
-                    <span style="color:#64748B; font-size:12px;">{T('hospitals')}</span>
-                    <span style="color:#CBD5E1; font-size:12px; font-family:monospace;">3</span>
+                    <span style="color:#8A7A6A; font-size:12px;">{T('hospitals')}</span>
+                    <span style="color:#C5B9AB; font-size:12px; font-family:monospace;">3</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
-                    <span style="color:#64748B; font-size:12px;">{T('algorithm')}</span>
-                    <span style="color:#00D4FF; font-size:12px; font-family:monospace;">FedAvg</span>
+                    <span style="color:#8A7A6A; font-size:12px;">{T('algorithm')}</span>
+                    <span style="color:#D4A040; font-size:12px; font-family:monospace;">FedAvg</span>
                 </div>
                 <div style="display:flex; justify-content:space-between;">
-                    <span style="color:#64748B; font-size:12px;">{T('privacy')}</span>
-                    <span style="color:#4ADE80; font-size:12px;">{T('preserved')}</span>
+                    <span style="color:#8A7A6A; font-size:12px;">{T('privacy')}</span>
+                    <span style="color:#22C883; font-size:12px;">{T('preserved')}</span>
                 </div>
             </div>
             """,
@@ -956,14 +956,14 @@ with tab_fed:
             f"""
             <div style="background:rgba(0,212,255,0.04); border:1px solid rgba(0,212,255,0.12);
                         border-radius:10px; padding:20px 24px;">
-                <div style="color:#00D4FF; font-weight:600; font-size:14px; margin-bottom:8px;">
+                <div style="color:#D4A040; font-weight:600; font-size:14px; margin-bottom:8px;">
                     {T('run_full_pipeline')}
                 </div>
-                <div style="color:#64748B; font-size:13px; margin-bottom:12px;">
+                <div style="color:#8A7A6A; font-size:13px; margin-bottom:12px;">
                     {T('run_full_pipeline_desc')}
                 </div>
-                <code style="display:block; background:#0F1827; border:1px solid #1A2540;
-                             border-radius:8px; padding:10px 14px; font-size:13px; color:#4ADE80;">
+                <code style="display:block; background:#181310; border:1px solid #2A2118;
+                             border-radius:8px; padding:10px 14px; font-size:13px; color:#22C883;">
                     python run_all.py
                 </code>
             </div>
@@ -998,7 +998,7 @@ with tab_fed:
                 <div class="node-card">
                     <div class="node-title">
                         🏥 {short}
-                        <span style="color:#64748B; font-weight:400; font-size:12px;">· {city}</span>
+                        <span style="color:#8A7A6A; font-weight:400; font-size:12px;">· {city}</span>
                     </div>
                     <div class="node-auc">{auc:.1f}%</div>
                     <div class="node-stat">
@@ -1030,7 +1030,7 @@ with tab_sec:
         f"""
         <div style="margin-bottom:20px;">
             <h2 style="color:#E2E8F0; margin:0 0 6px; font-size:20px;">{T('pqc_title')}</h2>
-            <p style="color:#64748B; margin:0; font-size:13px;">
+            <p style="color:#8A7A6A; margin:0; font-size:13px;">
                 {T('pqc_subtitle')}
             </p>
         </div>
@@ -1044,8 +1044,8 @@ with tab_sec:
         st.markdown(f"<div class='section-heading'>{T('secure_flow')}</div>", unsafe_allow_html=True)
         st.markdown(
             f"""
-            <div style="background:linear-gradient(135deg,#0F1827,#111E30);
-                        border:1px solid #1A2540; border-radius:14px; padding:20px 24px;">
+            <div style="background:#181310;
+                        border:1px solid #2A2118; border-radius:14px; padding:20px 24px;">
 
                 <div class="flow-step">
                     <div class="flow-num">1</div>
@@ -1072,10 +1072,10 @@ with tab_sec:
                 </div>
 
                 <div class="flow-step">
-                    <div class="flow-num" style="background:linear-gradient(135deg,#0F4C81,#0099CC);">→</div>
+                    <div class="flow-num" style="background:#2A1E08;border:1px solid rgba(212,160,64,0.3);">→</div>
                     <div class="flow-body">
-                        <div class="flow-title" style="color:#00D4FF;">{T('flow4_title')}</div>
-                        <div class="flow-desc" style="color:#94A3B8;">{{ kem_ciphertext · aes_ciphertext · nonce · salt }}</div>
+                        <div class="flow-title" style="color:#D4A040;">{T('flow4_title')}</div>
+                        <div class="flow-desc" style="color:#B8ADA0;">{{ kem_ciphertext · aes_ciphertext · nonce · salt }}</div>
                     </div>
                 </div>
 
@@ -1122,8 +1122,8 @@ with tab_sec:
         )
         st.markdown(
             f"""
-            <div style="background:linear-gradient(135deg,#0F1827,#111E30);
-                        border:1px solid #1A2540; border-radius:14px; padding:18px 20px;">
+            <div style="background:#181310;
+                        border:1px solid #2A2118; border-radius:14px; padding:18px 20px;">
                 {spec_rows}
             </div>
             """,
@@ -1152,8 +1152,8 @@ with tab_sec:
                         f"""
                         <div style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.25);
                                     border-radius:10px; padding:14px 16px; margin-top:8px;">
-                            <div style="color:#4ADE80; font-weight:600; margin-bottom:10px;">{T('pqc_success')}</div>
-                            <div style="font-family:monospace; font-size:12px; color:#94A3B8; line-height:1.8;">
+                            <div style="color:#22C883; font-weight:600; margin-bottom:10px;">{T('pqc_success')}</div>
+                            <div style="font-family:monospace; font-size:12px; color:#B8ADA0; line-height:1.8;">
                                 Public Key &nbsp;&nbsp;{len(keypair.public_key):,} bytes<br>
                                 Secret Key &nbsp;&nbsp;{len(keypair.secret_key):,} bytes<br>
                                 KEM Cipher &nbsp;&nbsp;{len(payload.kem_ciphertext):,} bytes<br>
@@ -1174,13 +1174,16 @@ with tab_sec:
         f"""
         <div style="background:rgba(0,212,255,0.04); border:1px solid rgba(0,212,255,0.1);
                     border-radius:12px; padding:18px 22px;">
-            <div style="color:#00D4FF; font-weight:600; font-size:14px; margin-bottom:8px;">
+            <div style="color:#D4A040; font-weight:600; font-size:14px; margin-bottom:8px;">
                 {T('why_pqc')}
             </div>
-            <div style="color:#64748B; font-size:13px; line-height:1.7;">
+            <div style="color:#8A7A6A; font-size:13px; line-height:1.7;">
                 {T('why_pqc_text')}
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+
+
